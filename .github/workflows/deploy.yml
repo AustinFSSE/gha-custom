@@ -13,6 +13,9 @@ jobs:
         uses: ./.github/actions/cached-depends
         with:
           caching: false
+      - name: Output Information
+        run: |
+          echo "Cache used: ${{ steps.install.outputs.used-cache }}"
       - name: Lint code
         run: npm run lint
   test:
