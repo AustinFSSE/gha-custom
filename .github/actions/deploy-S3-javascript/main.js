@@ -4,7 +4,11 @@ const exec = require("@actions/exec");
 
 async function run() {
   // Your code to deploy to S3 goes here
-  core.notice('Hello from my custom javascript action!');
+  const bucketName = core.getInput('bucket-name');
+  const region = core.getInput('region');
+  const distFolder = core.getInput('dist-folder');
+
+  core.notice(`Deploying to S3 bucket: ${bucketName}, region: ${region}, from folder: ${distFolder}`);
 }
 
 run();
